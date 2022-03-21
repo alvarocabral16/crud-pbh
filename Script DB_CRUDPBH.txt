@@ -1,0 +1,30 @@
+-- Projeto CRUD de PBH: DB_CRUDPBH
+
+CREATE TABLE Profissional(
+	ID_Profissional serial NOT NULL,
+	Nome varchar(30) NOT NULL,
+	Endereco varchar(60) NOT NULL,
+	Telefone varchar(10) NOT NULL,
+	Celular varchar(10) NOT NULL,
+	Funcao varchar(20) NOT NULL,
+	
+	CONSTRAINT PK_IDProfissional PRIMARY KEY (ID_Profissional)
+);
+
+CREATE TABLE Estabelecimento(
+	ID_Estabelecimento serial NOT NULL,
+	RazSocial varchar(30) NOT NULL,
+	Endereco varchar(60) NOT NULL,
+	Telefone varchar(10) NOT NULL,
+	
+	CONSTRAINT PK_IDEstabelecimento PRIMARY KEY (ID_Estabelecimento)
+);
+
+
+CREATE TABLE Profissional_Estabelecimento(
+	ID_Profissional int NOT NULL,
+	ID_Estabelecimento int NOT NULL,
+	
+	CONSTRAINT FK_IDProfissional FOREIGN KEY (ID_Profissional) REFERENCES Profissional (ID_Profissional),
+	CONSTRAINT FK_IDEstabelecimento FOREIGN KEY (ID_Estabelecimento) REFERENCES Estabelecimento (ID_Estabelecimento)
+);

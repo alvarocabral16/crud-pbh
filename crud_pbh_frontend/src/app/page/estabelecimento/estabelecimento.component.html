@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="form-group w-50" >
+      <p></p>
+      <h2 style="padding-left: 100px" >Cadastrar Estabelecimento</h2>
+      <label for="">Razão Social: </label>
+      <input type="text" class="form-control" placeholder="Razão Social" [(ngModel)]="cadastrarEstabelecimento.razsocial">
+      <br>
+      <label for="">Endereço: </label>
+      <input type="text" class="form-control" placeholder="Endereço" [(ngModel)]="cadastrarEstabelecimento.endereco">
+      <br>
+      <label for="">Telefone: </label>
+      <input type="text" class="form-control" placeholder="Telefone" [(ngModel)]="cadastrarEstabelecimento.telefone">
+    </div>
+    <br>
+    <div class="text-left">
+      <button class="btn btn-outline-success" (click)="condicaoCadastrar()">Salvar</button>
+      <button class="btn btn-outline-secondary" style="margin-left: 10px" (click)="limpar()">Limpar</button>
+    </div>  
+    <br>
+</div>
+<br>
+<h3>Listar Estabelecimento</h3>
+<p></p>
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>RAZÃO SOCIAL</th>
+      <th>ENDEREÇO</th>
+      <th>TELEFONE</th>
+      <th style="padding-left: 30px">AÇÃO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let le of listarEstabelecimento; index as i">
+      <td>{{le.id_estabelecimento}}</td>
+      <td>{{le.razsocial}}</td>
+      <td>{{le.endereco}}</td>
+      <td>{{le.telefone}}</td>
+      <td>
+        <span>
+          <button class="btn btn-primary" title="Editar"><i class="pi pi-user-edit" style="font-size: 20px" (click)="atualizarEstabelecimento(i)"></i></button>
+          <button class="btn btn-danger" title="Excluir" style="margin-left: 3px"><i class="pi pi-trash" style="font-size: 20px" (click)="deletar(le.id_estabelecimento)"></i></button>
+        </span>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,23 @@
+<h3>Relacionamento</h3>
+<p></p>
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>ID PROFISSIONAL</th>
+      <th>ID ESTABELECIMENTO</th>
+      <th style="padding-left: 30px">AÇÃO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let l of listarRelaciomamento; index as i">
+      <td>{{l.id_profissional}}</td>
+      <td>{{l.id_estabelecimento}}</td>
+        <!-- <td>
+          <span>
+            <button class="btn btn-primary" title="Editar"><i class="pi pi-user-edit" style="font-size: 20px" (click)="atualizarProfissional(i)"></i></button>
+            <button class="btn btn-danger" title="Excluir" style="margin-left: 3px"><i class="pi pi-trash" style="font-size: 20px" (click)="deletar(lp.id_profissional)"></i></button>
+          </span>
+        </td> -->
+      </tr>
+    </tbody>
+</table>

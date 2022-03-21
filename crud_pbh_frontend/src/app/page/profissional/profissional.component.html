@@ -1,0 +1,58 @@
+<div class="container">
+    <div class="form-group w-50" >
+      <p></p>
+      <h2 style="padding-left: 100px" >Cadastrar Profissional</h2>
+      <label for="">Nome: </label>
+      <input type="text" class="form-control" placeholder="Nome" [(ngModel)]="cadastrarProfissional.nome">
+      <br>
+      <label for="">Endereço: </label>
+      <input type="text" class="form-control" placeholder="Endereço" [(ngModel)]="cadastrarProfissional.endereco">
+      <br>
+      <label for="">Telefone: </label>
+      <input type="text" class="form-control" placeholder="Telefone" [(ngModel)]="cadastrarProfissional.telefone">
+      <br>
+      <label for="">Celular: </label>
+      <input type="text" class="form-control" placeholder="Celular" [(ngModel)]="cadastrarProfissional.celular">
+      <br>
+      <label for="">Função: </label>
+      <input type="text" class="form-control" placeholder="Função" [(ngModel)]="cadastrarProfissional.funcao">
+    </div>
+    <br>
+    <div class="text-left">
+      <button class="btn btn-outline-success" (click)="condicaoCadastrar()">Salvar</button>
+      <button class="btn btn-outline-secondary" style="margin-left: 10px" (click)="limpar()">Limpar</button>
+    </div>  
+    <br>
+</div>
+<br>
+<h3>Listar Profissional</h3>
+<p></p>
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>NOME</th>
+      <th>ENDEREÇO</th>
+      <th>TELEFONE</th>
+      <th>CELULAR</th>
+      <th>FUNÇÃO</th>
+      <th style="padding-left: 30px">AÇÃO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let lp of listarProfissional; index as i">
+      <td>{{lp.id_profissional}}</td>
+      <td>{{lp.nome}}</td>
+      <td>{{lp.endereco}}</td>
+      <td>{{lp.telefone}}</td>
+      <td>{{lp.celular}}</td>
+      <td>{{lp.funcao}}</td>
+      <td>
+        <span>
+          <button class="btn btn-primary" title="Editar"><i class="pi pi-user-edit" style="font-size: 20px" (click)="atualizarProfissional(i)"></i></button>
+          <button class="btn btn-danger" title="Excluir" style="margin-left: 3px"><i class="pi pi-trash" style="font-size: 20px" (click)="deletar(lp.id_profissional)"></i></button>
+        </span>
+      </td>
+    </tr>
+  </tbody>
+</table>
